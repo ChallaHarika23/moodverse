@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
 import MiniGame from "./MiniGame";
 
@@ -32,6 +32,9 @@ function App() {
   const [chatMsg, setChatMsg] = useState("");
   const [chatHistory, setChatHistory] = useState([]);
   const [chatLoading, setChatLoading] = useState(false);
+  const [isListening, setIsListening] = useState(false);
+  const [voiceStatus, setVoiceStatus] = useState("Speak your mood to fill the box.");
+  const recognitionRef = useRef(null);
 
   const GROQ_KEY = process.env.REACT_APP_GROQ_KEY;
 
@@ -81,6 +84,62 @@ function App() {
       alert("Something went wrong!");
     }
     setLoading(false);
+  };
+
+  useEffect(() => {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    if (!SpeechRecognition) {
+      setVoiceStatus("Voice input is not available in this browser.");
+      return undefined;
+    }
+
+    const recognition = new SpeechRecognition();
+    recognition.lang = "en-US";
+    recognition.continuous = false;
+    recognition.interimResults = false;
+
+    recognition.onstart = () => {
+      setIsListening(true);
+      setVoiceStatus("Listening… say how you feel.");
+    };
+
+    recognition.onresult = (event) => {
+      const transcript = event.results[0][0].transcript.trim();
+      if (transcript) {
+        setMood((prev) => (prev ? `${prev} ${transcript}` : transcript));
+        setVoiceStatus("Voice captured. You can edit it or continue.");
+      }
+    };
+
+    recognition.onerror = () => {
+      setIsListening(false);
+      setVoiceStatus("Voice input could not start. Please try again.");
+    };
+
+    recognition.onend = () => {
+      setIsListening(false);
+      setVoiceStatus("Voice input stopped. You can keep typing or press the mic again.");
+    };
+
+    recognitionRef.current = recognition;
+
+    return () => {
+      recognition.stop();
+    };
+  }, []);
+
+  const startVoiceInput = () => {
+    if (!recognitionRef.current) {
+      alert("Voice input is not supported in this browser.");
+      return;
+    }
+
+    try {
+      recognitionRef.current.start();
+    } catch (error) {
+      setVoiceStatus("Voice input is already running. Please try again.");
+    }
   };
 
   const sendChat = async () => {
@@ -142,14 +201,25 @@ function App() {
               <span className="feature-chip">🎮 Calm or exciting games</span>
             </div>
             <div className="input-area">
-              <input
-                className="mood-input"
-                type="text"
-                placeholder="How are you feeling right now?"
-                value={mood}
-                onChange={(e) => setMood(e.target.value)}
-                onKeyPress={(e) => e.key === "Enter" && analyzeMood()}
-              />
+              <div className="input-row">
+                <input
+                  className="mood-input"
+                  type="text"
+                  placeholder="How are you feeling right now?"
+                  value={mood}
+                  onChange={(e) => setMood(e.target.value)}
+                  onKeyPress={(e) => e.key === "Enter" && analyzeMood()}
+                />
+                <button
+                  type="button"
+                  className={`voice-btn ${isListening ? "listening" : ""}`}
+                  onClick={startVoiceInput}
+                  aria-label="Use voice input"
+                >
+                  {isListening ? "🎙️" : "🎤"}
+                </button>
+              </div>
+              <p className="voice-hint">{voiceStatus}</p>
               <button className="generate-btn" onClick={analyzeMood} disabled={loading}>
                 {loading ? "✨ Building your universe..." : "✨ Create My Universe"}
               </button>

@@ -173,8 +173,15 @@ body {
   gap: 14px;
 }
 
+.input-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: min(580px, 100%);
+}
+
 .mood-input {
-  width: min(520px, 100%);
+  flex: 1;
   padding: 16px 18px;
   border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.18);
@@ -192,6 +199,34 @@ body {
 }
 
 .mood-input::placeholder { color: rgba(235, 244, 255, 0.65); }
+
+.voice-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  font-size: 1.05rem;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.voice-btn:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.voice-btn.listening {
+  background: linear-gradient(135deg, #8cf5ff, #7c8cff);
+  color: #07111d;
+}
+
+.voice-hint {
+  font-size: 0.9rem;
+  color: rgba(235, 244, 255, 0.82);
+}
 
 .generate-btn {
   padding: 14px 24px;
