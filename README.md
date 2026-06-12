@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+# 🌌 MoodVerse — AI-Powered Emotional Universe Generator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> Type your mood — we'll build your universe
 
-## Available Scripts
+## 🎯 What is MoodVerse?
 
-In the project directory, you can run:
+MoodVerse is an innovative AI-powered web application that transforms
+your emotions into a fully immersive personalized universe.
+Simply type how you are feeling and MoodVerse instantly creates
+a complete emotional world just for you.
 
-### `npm start`
+## ✨ Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 🎨 **Dynamic Universe** — Background colors shift in real time based on your emotion
+- ✨ **Floating Particles** — Animated particles matching your mood colors
+- 📖 **Personalized Story** — AI generates a unique story where YOU are the hero
+- 🤖 **AI Companion** — A uniquely named companion you can chat with
+- 🎮 **Mood Based Mini Game** — Calm moods get Bubble Pop, excited moods get Star Catcher
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠️ Technologies Used
 
-### `npm test`
+- **React.js** — Frontend framework
+- **GitHub Copilot** — AI assisted development
+- **Groq API** — Mood analysis and story generation
+- **Llama 3.3 70B** — Large language model
+- **CSS Animations** — Dynamic visual effects
+- **Canvas API** — Mini game rendering
+- **Web Speech API** — Voice input
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🏗️ Architecture
+    <img width="523" height="427" alt="image" src="https://github.com/user-attachments/assets/861ac596-24e4-4107-9cb3-b3f8919b75be" />
 
-### `npm run build`
+## 🚀 How to Run Locally
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository
+git clone https://github.com/ChallaHarika23/moodverse.git
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Install dependencies
+cd moodverse
+npm install
+3. Create `.env` file in root
+REACT_APP_GROQ_KEY=your_groq_api_key_here
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. Start the app
+npm start
 
-### `npm run eject`
+## 💡 Problem Solved
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+People struggle to express and process their emotions.
+MoodVerse makes emotional expression fun and creative by turning
+feelings into an entire AI generated universe — combining
+storytelling, conversation, and gaming into one personalized experience.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🏆 What Makes It Unique
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Most AI apps just respond to you.
+MoodVerse builds an entire world around you.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🎮 How to Use
 
-## Learn More
+1. Open the app
+2. Type your mood in the input box
+3. Click **Create My Universe**
+4. Explore your personalized universe
+5. Chat with your AI companion
+6. Play the mood based mini game
+7. Reset and try a different mood!
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 👩‍💻 Built With GitHub Copilot
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project was built using GitHub Copilot for AI assisted
+development as part of the Microsoft Agents League Contest
+at AI Skills Fest 2026.
