@@ -27,8 +27,10 @@ a complete emotional world just for you.
 - **Canvas API** — Mini game rendering
 - **Web Speech API** — Voice input
 
-## 🏗️ Architecture
-    <img width="523" height="427" alt="image" src="https://github.com/user-attachments/assets/861ac596-24e4-4107-9cb3-b3f8919b75be" />
+##  Architecture
+
+<img width="523" height="427" alt="image" src="https://github.com/user-attachments/assets/9f09324a-e165-422a-9ac1-c9ed5175ebc8" />
+
 
 ## 🚀 How to Run Locally
 
